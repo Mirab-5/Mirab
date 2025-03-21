@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(45deg, #000000, #1a1a2e, #16213e, #000000);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #0ff;
+      text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+      animation: neonFlicker 1.5s infinite alternate;
+    }
+    @keyframes neonFlicker {
+      from { opacity: 0.8; }
+      to { opacity: 1; }
+    }
+    hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #0ff, transparent);
+      margin: 20px 0;
+    }
+    a {
+      position: relative;
+      display: block;
+      font-size: 1.5rem;
+      color: #0ff;
+      text-decoration: none;
+      margin: 10px 0;
+      transition: transform 0.3s, text-shadow 0.3s;
+    }
+    a:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 1px solid #0ff;
+      opacity: 0;
+      transition: opacity 0.3s;
+      box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    }
+    a:hover {
+      transform: scale(1.1);
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+    }
+    a:hover:before {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Project</h1>
+  <hr>
+  <a href="Tip Calculator.html">Tip Calculator</a>
+  <hr>
+  <a href="memimi.html">memimi</a>
+  <hr>
+  <a href="Colour Picker.html">Colour Picker</a>
+  <hr>
+  <a href="Boolean.html">Boolean</a>
+  <hr>
+  <a href="string.html">string</a>
+  <hr>
+  <a href="Loop.htm">Loop</a>
+  <hr>
+  <a href="external.html">external</a>
+  <hr>
+  <a href="Arithmetic Expressions .html">Arithmetic Expressions</a>
+  <hr>
+  <a href="Unit Converter 2.html">Unit Converter</a>
+  <hr>
+  <a href="To do list.html">To do list</a>
+  <hr>
+</body>
+</html>

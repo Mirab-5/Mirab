@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Fruit Game</title>
+  <script defer src="index.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      /* Ensure no extra scrollbars appear */
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f8f9fa;
+    }
+    .game-container {
+      display: grid;
+      grid-template-columns: repeat(8, 100px); /* 8 columns to reduce rows */
+      gap: 25px;
+      padding: 50px;
+      background: rgb(11, 51, 230);
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    .card {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.5rem;
+      background: #fff;
+      border: 1px solid #ddd;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .card.flipped {
+      background: #ffeb3b;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container" id="game-board"></div>
+  <script>
+    const fruits = ["🍎", "🍌", "🍇", "🍉", "🍊", "🍒", "🍍", "🥝", "🍐", "🍑", "🍅", "🍋", "🍈", "🍓", "🥭", "🥑", "🍏"];
+    let cards = [...fruits, ...fruits]
+      .sort(() => Math.random() - 0.5)
+      .map((fruit, index) => ({ id: index, fruit, flipped: false, matched: false }));
+    let selected = [];
+  
+    function renderGame() {
+      const board = document.getElementById("game-board");
+      board.innerHTML = "";
+      cards.forEach((card, index) => {
+        const cardElement = document.createElement("div");
+        cardElement.classList.add("card");
+        cardElement.textContent = card.flipped || card.matched ? card.fruit : "❓";
+        cardElement.addEventListener("click", () => flipCard(index));
+        board.appendChild(cardElement);
+      });
+    }
+  
+    function flipCard(index) {
+      if (cards[index].flipped || cards[index].matched || selected.length >= 2) return;
+      cards[index].flipped = true;
+      selected.push(index);
+      if (selected.length === 2) {
+        checkMatch();
+      }
+      renderGame();
+    }
+  
+    function checkMatch() {
+      const [first, second] = selected;
+      if (cards[first].fruit === cards[second].fruit) {
+        cards[first].matched = true;
+        cards[second].matched = true;
+      } else {
+        setTimeout(() => {
+          cards[first].flipped = false;
+          cards[second].flipped = false;
+          renderGame();
+        }, 1000);
+      }
+      selected = [];
+    }
+  
+    renderGame();
+  </script>
+</body>
+</html>

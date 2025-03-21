@@ -1,0 +1,21 @@
+<script>
+    var message ="";
+    var answer = 15;
+
+    do{
+        var input1 = prompt("Guess the number between 1 to 10!🔢1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣🎱8️⃣9️⃣9️⃣🔟");
+        input1 = parseInt(input1);
+
+        if(input1 != answer){
+            alert("Nope - Wrong Stupid.");
+        }
+
+    }while(answer != input1)
+
+    message = "You Guessed it right dumbie🤜✅☑✔🤔💭," + answer + "" + " is the right answer dumbie🤜✅☑✔🤔💭";
+</script>
+
+<h1>Guess the Number</h1>
+<script>
+    document.write(message)
+</script>
